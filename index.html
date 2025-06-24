@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="welcome-page">
+    <!-- welcome.html -->
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="background-video.mp4" type="video/mp4">
+        Your browser does not support the video element.
+    </video>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" aria-hidden="true">
+        <div class="progress-fill"></div>
+    </div>
+    <!-- Header with Logo -->
+    <header class="welcome-header">
+        <a href="index.html" class="logo">SKYE</a>
+    </header>
+    <!-- Greeting Popup -->
+    <div class="greeting-popup" id="greetingPopup">
+        <div class="greeting-card">
+            <!-- <i class='bx bx-x' id="closePopup" aria-label="Close popup"></i> -->
+            <h2 id="greeting-text">Welcome to My World!</h2>
+            <form id="personalize-form" class="personalize-form" aria-label="Sign up for personalized experience">
+                <div class="input-box">
+                    <label for="user-name">Your Name <span class="required" aria-hidden="true">*</span></label>
+                    <input type="text" id="user-name" name="user-name" placeholder="Enter your name" required aria-required="true">
+                </div>
+                <div class="input-box">
+                    <label for="user-email">Your Email <span class="required" aria-hidden="true">*</span></label>
+                    <input type="email" id="user-email" name="user-email" placeholder="Enter your email" required aria-required="true">
+                </div>
+                <button type="submit" class="btn personalize-btn" aria-label="Submit name and email">
+                    Continue<span class="loader hidden" aria-hidden="true"></span>
+                </button>
+            </form>
+            <p id="greeting-message" class="hidden">Welcome, <span id="user-name-display"></span>! We've sent a special message to <span id="user-email-display"></span>. Ready to explore?</p>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <main class="welcome-content">
+        <p class="greeting">Welcome, <span class="user-name"></span>!</p>
+        <h1>Discover My Portfolio</h1>
+        <p>Welcome to my portfolio, showcasing my expertise in UI/UX design, web development, 
+            and more. Explore the <strong>Home page</strong> for an overview of my skills, projects, 
+            and testimonials. Learn about my background on the <strong>About page</strong>. 
+            Dive into my <strong>Projects page</strong> to see UI/UX designs, websites, and graphics. 
+            Visit <strong>Tech Nexus page</strong> for blog posts and crypto tools. 
+            Connect with me via the <strong>Contact page</strong> for collaborations!</p>
+        <a href="home.html" class="btn cta-button" aria-label="Continue to portfolio">
+            Continue to My Portfolio <i class='bx bx-right-arrow-alt'></i>
+        </a>
+    </main>
+    <!-- Audio Player -->
+    <audio id="welcome-audio" aria-label="Background music">
+        <source src="calm.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="audio-controls">
+        <button id="toggle-audio" class="btn audio-btn" aria-label="Toggle audio playback">
+            <i class='bx bx-volume-full'></i> Toggle Audio
+        </button>
+    </div>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+    (function(){
+        emailjs.init('Vj3JITWR-9kOy2wkp'); // Replace with your Public Key
+    })();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

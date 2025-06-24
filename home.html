@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Portfolio of Daniel Owolabi, a UI/UX designer, web developer, and data analyst offering freelance services globally. Expertise in creating user-focused designs, web development, and digital solutions.">
+        <meta name="keywords" content="UI/UX design, web development, freelance, UI/UX design, web design, data analysis, frontend developer, digital solutions, global, design trends">
+        <meta name="author" content="Daniel Owolabi">
+        <meta name="robots" content="index, follow">
+    
+        <!-- Title Tag -->
+        <title>Daniel Owolabi - UI/UX Designer, Web Developer & Data Analyst</title>
+    
+        <!-- Open Graph Meta Tags for Social Sharing -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://github.com/codewithskye">
+        <meta property="og:title" content="Daniel Owolabi - UI/UX Designer, Web Developer & Data Analyst">
+        <meta property="og:description" content="Portfolio of Daniel Owolabi, showcasing UI/UX design, web development, and data analysis skills. Contact me for freelance work and collaborations.">
+        <meta property="og:image" content="https://github.com/codewithskye/profilepics.png"> <!-- Replace with your image URL -->
+    
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:creator" content="@Daniel_Owolabi">
+        <meta name="twitter:title" content="Daniel Owolabi - UI/UX Designer, Web Developer & Data Analyst">
+        <meta name="twitter:description" content="Portfolio of Daniel Owolabi, showcasing UI/UX design, web development, and data analysis skills. Contact me for freelance work and collaborations.">
+        <meta name="twitter:image" content="https://github.com/codewithskye/profilepics.png"> <!-- Replace with your image URL -->
+    
+        <!-- Link to Stylesheets -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="style.css">
+    
+        <!-- Favicon and Icons -->
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+    
+        <!-- Structured Data Markup for Rich Snippets (JSON-LD) -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Daniel Owolabi",
+            "url": "https://github.com/codewithskye/",
+            "image": "https://github.com/codewithskye/Profilepic.png", 
+            "description": "UI/UX designer, web developer, and data analyst offering global freelance services in design, development, and digital solutions.",
+            "sameAs": [
+                "https://www.linkedin.com/in/codewithskye/",
+                "https://www.instagram.com/code_withskye/",
+                "https://github.com/codewithskye",
+                "https://www.behance.net/danielowolabi"
+            ]
+        }
+        </script>
+    </head>
+    
+    <body class="home-page">
+ 
+        <!-- Greeting Popup -->
+        <div class="greeting-popup" id="greetingPopup">
+            <div class="greeting-card">
+                <i class='bx bx-x' id="closePopup" aria-label="Close popup"></i>
+                <h2 id="greeting-text">Good Morning, <span id="user-name-display"></span>!</h2>
+                <p id="greeting-message">I'm thrilled to have you here,<span id="user-name-display"></span>. Explore my work, and let's create something amazing together!</p>
+                <p id="greeting-time-date"></p>
+            </div>
+        </div>
+    <!-- Navigation -->
+    <nav class="mobile-scroll">
+        <a href="index.html" class="logo"><span>Skye</span></a>
+        <div class="menu-toggle-container">
+            <div class="mode-toggle" title="Toggle Dark Mode">
+                <i class='bx bx-moon' id="dark-mode-toggle"></i>
+            </div>
+            <div class="menu-toggle">
+                <i class='bx bx-menu-alt-right' id="menu-open"></i>
+                <i class='bx bx-x' id="menu-close" style="display: none;"></i>
+            </div>
+        </div>
+        <ul class="links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects <span class="new-badge">New</span></a></li>
+            <li><a href="technexus.html">Tech Nexus <span class="new-badge">New</span></a></li>
+            <li><a href="contact.html" class="btn nav-btn">Contact Me <i class='bx bxs-chevron-right'></i></a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="contact.html" class="btn nav-btn">Contact Me <i class='bx bxs-chevron-right'></i></a>
+            <div class="mode-toggle" title="Toggle Dark Mode">
+                <i class='bx bx-moon' id="dark-mode-toggle"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="mobile-scroll content-section">
+        <!-- <video class="video-background" autoplay muted loop playsinline>
+            <source src="background-video.mp4" type="video/mp4">
+            Your browser does not support the video element.
+        </video> -->
+        <img src="images/profilepics.png" alt="Daniel Owolabi" class="profile-img mobile-scroll" onerror="this.src='https://via.placeholder.com/300x300?text=Profile+Image';">
+        <div class="info-box mobile-scroll">
+            <h1><span>Hi <span id="user-name-display"></span>, I’m Daniel</span></h1>
+            <h3>A UI/UX Designer & Web Developer</h3>
+            <p>I design clean, user-friendly interfaces and build responsive websites.</p>
+            <div class="btn-box">
+                <a href="contact.html" class="btn">Hire Me</a>
+                <a href="Daniel_Owolabi_resume.pdf" class="btn" download>Download Resume</a>
+            </div>
+        </div>
+        <div class="marquee-container">
+            <p class="marquee">👨‍💻 UX/UI Designer • 🎨 Figma • 🚀 Webflow • 🧠 Design Thinking • 📱 Responsive Design • 🔧 Prototyping</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="mobile-scroll content-section">
+        <div class="about-container mobile-scroll">
+            <h1 class="header mobile-scroll"><span>About Me</span></h1>
+            <div class="about-content">
+                <div class="about-info mobile-scroll">
+                    <p>Hi, I’m Daniel Owolabi, a UI/UX designer and web developer based in Lagos, Nigeria. With over three years of experience, I specialize in creating user-centered designs that solve real-world problems.</p>
+                    <p>My expertise spans UI/UX design, web development, data analysis, graphic design, and more. I’m passionate about blending creativity with technology to deliver intuitive and impactful digital experiences.</p>
+                    <a href="about.html" class="continue-reading">Continue Reading <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+                <img src="images/Profilepic.png" alt="Daniel Owolabi" class="about-image mobile-scroll" onerror="this.src='https://via.placeholder.com/320x320?text=Profile+Image';">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="mobile-scroll content-section">
+        <h2 class="skills-heading mobile-scroll"><span>My Skills</span></h2>
+        <div class="skills-content">
+            <div class="focus-section mobile-scroll slide-left">
+                <h3><span>Focus</span></h3>
+                <div class="focus-list">
+                    <ul>
+                        <li>UI/UX Design</li>
+                        <li>Web Development</li>
+                        <li>Data Analysis</li>
+                        <li>Graphic Design</li>
+                        <li>Video Editing</li>
+                        <li>Python Programming</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="skills-progress mobile-scroll slide-right">
+                <h3><span>Skills Progress</span></h3>
+                <ul>
+                    <li>
+                        <span>Figma</span>
+                        <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                    </li>
+                    <li>
+                        <span>JavaScript</span>
+                        <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                    </li>
+                    <li>
+                        <span>Python</span>
+                        <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                    </li>
+                    <li>
+                        <span>HTML & CSS</span>
+                        <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+                    </li>
+                    <li>
+                        <span>Python</span>
+                        <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="mobile-scroll content-section">
+        <div class="projects-header">
+            <h1 class="header mobile-scroll"><span>Projects</span></h1>
+            <a href="projects.html" class="see-more">See More <i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+        <div class="projects-container">
+            <a href="https://purple-term-0787.animaapp.io/?v=bba12ee3-7734-4bb5-965b-589ad958b2c9" class="blog-link" target="_blank" rel="noopener noreferrer">
+                <div class="box mobile-scroll">
+                    <h1><span>BBT Generating – Hero Section UI/UX Design</span></h1>
+                    <p>A modern, AI-focused landing page created with usability and visual impact in mind. </p>
+                    <img src="images/bbt.jpg" alt="Bbt generating" onerror="this.src='https://via.placeholder.com/300x200?text=bbt+generating';">
+                </div>
+            </a>
+            <a href="https://shopdart.42web.io" class="blog-link" target="_blank" rel="noopener noreferrer">
+                <div class="box mobile-scroll">
+                    <h1><span>Multi Vendor E-commerce Website</span></h1>
+                    <p>ShopDart, your go-to destination for modern, comfortable, and stylish clothing made for real life.</p>
+                    <img src="images/Shopdart.png" alt="Shop Dart" onerror="this.src='https://via.placeholder.com/300x200?text=Shop+Dart';">
+                </div>
+            </a>
+            <a href="https://example.com" class="blog-link" target="_blank" rel="noopener noreferrer">
+                <div class="box mobile-scroll">
+                    <h1><span>Flavor Folio</span></h1>
+                    <p>A food delivery app with a focus on intuitive UI/UX design.</p>
+                    <img src="images/foodfolio1.png" alt="Flavor Folio" onerror="this.src='https://via.placeholder.com/300x200?text=Flavor+Folio';">
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="mobile-scroll content-section">
+        <h1 class="header mobile-scroll"><span>Testimonials</span></h1>
+        <div class="testimonials-container">
+            <div class="testimonial-card mobile-scroll">
+                <p>Daniel’s UI/UX design transformed our app’s user experience. His attention to detail is unmatched!</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3><span>John Doe</span></h3>
+                        <p>CEO, insightledger</p>
+                    </div>
+                    <img src="images/insight_logo.png" alt="Company Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/60x60?text=Logo';">
+                </div>
+            </div>
+            <div class="testimonial-card mobile-scroll">
+                <p>Working with Daniel was a breeze. His web development skills delivered a flawless website.</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3><span>John</span></h3>
+                        <p>Shop Dart</p>
+                    </div>
+                    <img src="images/shop_dart.png" alt="Company Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/60x60?text=Logo';">
+                </div>
+            </div>
+            <div class="testimonial-card mobile-scroll">
+                <p>Daniel’s creativity and technical expertise brought our vision to life. Highly recommend!</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3><span>Michael Brown</span></h3>
+                        <p>Founder, Cookies</p>
+                    </div>
+                    <img src="images/cookie_logo.png" alt="Company Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/60x60?text=Logo';">
+                </div>
+            </div>
+            <div class="testimonial-card mobile-scroll">
+                <p>His data analysis skills provided insights that drove our business forward.</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3><span>Sarah Johnson</span></h3>
+                        <p>COO, DataDriven</p>
+                    </div>
+                    <img src="images/foodfolio_logo.png" alt="Company Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/60x60?text=Logo';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="mobile-scroll content-section">
+        <h1 class="header mobile-scroll"><span>FAQ</span></h1>
+        <p class="faq-intro mobile-scroll">Here are some common questions I get asked. Feel free to reach out if you have more!</p>
+        <div class="faq-container">
+            <div class="faq-item mobile-scroll">
+                <div class="faq-question">
+                    <h3>What is your design process like?</h3>
+                    <i class='bx bx-plus'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>My design process starts with understanding your goals and users, followed by research, wireframing, prototyping, and iterative testing. I ensure constant communication to align with your vision and deliver user-centric designs.</p>
+                </div>
+            </div>
+            <div class="faq-item mobile-scroll">
+                <div class="faq-question">
+                    <h3>How long does a project take?</h3>
+                    <i class='bx bx-plus'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Project timelines depend on scope, but typically range from 1 weeks for small projects to 2-3 weeks or more for larger ones.</p>
+                </div>
+            </div>
+            <div class="faq-item mobile-scroll">
+                <div class="faq-question">
+                    <h3>Do you work with startups?</h3>
+                    <i class='bx bx-plus'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sure! I love helping startups bring their ideas to life with user-focused designs and robust development.</p>
+                </div>
+            </div>
+            <div class="faq-item mobile-scroll">
+                <div class="faq-question">
+                    <h3>Do you offer ongoing support?</h3>
+                    <i class='bx bx-plus'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, I offer maintenance and support packages to ensure your website or app remains updated and performs optimally. We can discuss a plan that suits your needs after project completion.</p>
+                </div>
+            </div>
+            <div class="faq-item mobile-scroll">
+                <div class="faq-question">
+                    <h3>My company doesn’t have a brand logo yet, can you help with that?</h3>
+                    <i class='bx bx-plus'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! I’d be happy to create a custom brand logo for your business.</p>
+                </div>
+            </div>
+            <div class="faq-item mobile-scroll">
+                <div class="faq-question">
+                    <h3>Can you also create video ads for my brand?</h3>
+                    <i class='bx bx-plus'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, I can help with that too! We can discuss the pricing details based on your specific needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="cta-container mobile-scroll">
+            <h2 class="cta-heading">Got a Vision? Let’s Bring It To Life!</h2>
+            <p class="cta-subtext">
+                I’m always excited to collaborate on new and innovative projects.
+                Whether you’re starting from scratch or refining an existing idea.
+            </p>
+            <a href="contact.html" class="cta-button">
+                Get In Touch
+                <i class="bx bx-right-arrow-alt"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="mobile-scroll content-section">
+        <div class="projects-header">
+            <h1 class="header mobile-scroll"><span>Tech Nexus</span></h1>
+            <a href="technexus.html" class="see-more">See More <i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+        <div class="projects-container">
+            <a href="https://bit.ly/safe-memecoins-guide" class="blog-link" target="_blank" rel="noopener noreferrer">
+                <div class="box mobile-scroll">
+                    <h1><span>Don't Get RUGGED</span></h1>
+                    <p>Avoid Memecoin Scams Like a Pro</p>
+                    <p style="font-style: italic;">By Daniel Owolabi</p>
+                    <img src="images/memecoin1.png" alt="Blog post" onerror="this.src='https://via.placeholder.com/300x200?text=Memecoin+Guide';">
+                </div>
+            </a>
+            <a href="https://t.me/blumcrypto/891" class="blog-link" target="_blank" rel="noopener noreferrer">
+                <div class="box mobile-scroll">
+                    <h1><span>How to spot a legit token from a scam?🕵️‍♂️</span></h1>
+                    <p>Blum gives you verified charts, holder stats, and community signals</p>
+                    <img src="images/blum.jpeg" alt="UI/UX Trends" onerror="this.src='https://via.placeholder.com/300x200?text=UIUX+Trendshttps://via.placeholder.com/300x200?text=Responsive+Design';">
+                </div>
+            </a>
+            <a href="https://t.me/signal_spectrum" class="blog-link" target="_blank" rel="noopener noreferrer">
+                <div class="box mobile-scroll">
+                    <h1><span>Signal Spectrum</span></h1>
+                    <p>Signal Spectrum is your trusted source for timely updates, daily GameFi airdrop combos, and potential project insights, on Telegram.</p>
+                    <img src="images/signal.jpg" alt="Responsive Design" onerror="this.src='https://via.placeholder.com/300x200?text=Responsive+Design';">
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mobile-scroll content-section">
+        <h1 class="header mobile-scroll"><span>Contact Me</span></h1>
+        <form id="contactForm" action="https://formspree.io/f/movdqpoe" method="POST" class="mobile-scroll">
+            <div class="input-box">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="input-box">
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+        <!-- QR Code Section -->
+        <section class="qr-code-section mobile-scroll content-section">
+            <h2 class="qr-header">Connect Instantly</h2>
+            <div class="qr-container">
+                <div class="qr-box">
+                    <a href="https://wa.me/+2347016794490" target="_blank" rel="noopener noreferrer">
+                        <img src="images/whatsapp_qr.jpg" alt="WhatsApp QR Code" class="qr-image">
+                    </a>
+                    <p class="qr-text">Scan Me for WhatsApp</p>
+                </div>
+                <div class="qr-box">
+                    <a href="https://www.linkedin.com/in/codewithskye/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/linkedin_qr.jpg" alt="Telegram QR Code" class="qr-image">
+                    </a>
+                    <p class="qr-text">Scan Me for Linkedin</p>
+                </div>
+                <div class="qr-box">
+                    <a href="https://t.me/danskye007" target="_blank" rel="noopener noreferrer">
+                        <img src="images/telegram_qr.jpg" alt="Telegram QR Code" class="qr-image">
+                    </a>
+                    <p class="qr-text">Scan Me for Telegram</p>
+                </div>
+                <div class="qr-box">
+                    <a href="https://t.me/danskye007" target="_blank" rel="noopener noreferrer">
+                        <img src="images/instagram_qr.jpg" alt="Telegram QR Code" class="qr-image">
+                    </a>
+                    <p class="qr-text">Scan Me for Instagram</p>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="mobile-scroll content-section">
+        <div class="col-left">
+            <div class="col-box">
+                <span><i class='bx bx-location-plus'></i></span>
+                <span>Lagos, Nigeria.</span>
+            </div>
+            <div class="col-box">
+                <span><i class='bx bx-envelope'></i></span>
+                <span>skyedesignssd@gmail.com</span>
+            </div>
+        </div>
+        <div class="col-right">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/codewithskye/" target="_blank" rel="noopener noreferrer"><span><i class='bx bxl-linkedin'></i></span></a>
+                <a href="https://www.instagram.com/code_withskye/" target="_blank" rel="noopener noreferrer"><span><i class='bx bxl-instagram'></i></span></a>
+                <a href="https://web.facebook.com/profile.php?id=61556846283257" target="_blank" rel="noopener noreferrer"><span><i class='bx bxl-facebook'></i></span></a>
+                <a href="https://github.com/codewithskye" target="_blank" rel="noopener noreferrer"><span><i class='bx bxl-github'></i></span></a>
+            </div>
+        </div>
+        <!-- Newsletter Subscription -->
+        <div class="newsletter-container mobile-scroll">
+            <h2 class="newsletter-heading"><span>Stay Updated</span></h2>
+            <p class="newsletter-subtext">Subscribe to my newsletter for the latest posts, projects, and tech insights!</p>
+            <form id="newsletter-form" action="https://formspree.io/f/xqabkwrp" method="POST" class="mobile-scroll">
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <button type="submit" class="btn">Subscribe <i class='bx bx-envelope'></i></button>
+                <div id="newsletter-feedback" class="newsletter-feedback">
+                    <div class="feedback-content">
+                        <div class="loader hidden"></div>
+                        <div class="success-message hidden">
+                            <i class='bx bx-check-circle'></i>
+                            <span>Successfully Subscribed!</span>
+                        </div>
+                        <div class="error-message hidden"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="copyright">
+            <span>© All rights reserved <strong>skyedesigns</strong> 2025</span>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

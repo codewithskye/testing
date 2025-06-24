@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Compressor</title>
+    <style>
+        #drop-zone { border: 2px dashed #ccc; padding: 20px; text-align: center; }
+        #drop-zone.active { border-color: #00f; }
+        .file-list { list-style: none; padding: 0; }
+        .file-list li { display: flex; justify-content: space-between; padding: 5px; }
+        .error { color: red; }
+        .compression-result { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+        .btn { padding: 5px 10px; background: #007bff; color: #fff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div id="drop-zone">Drag & drop images here or click to select</div>
+    <input type="file" id="image-input" accept="image/jpeg,image/png" multiple style="display: none;">
+    <button id="compress-btn" disabled>Compress Images</button>
+    <div id="compressor-result"></div>
+    <!-- Include image-compressor.js from CDN -->
+    <script src="https://unpkg.com/image-compressor@2.0.0/dist/image-compressor.min.js"></script>
+    <script>
+        // Image Compressor using image-compressor.js
+        const dropZone = document.getElementById('drop-zone');
+        const imageInput = document.getElementById('image-input');
+        const compressBtn = document.getElementById('compress-btn');
+        const compressorResult = document.getElementById('compressor-result');
+        let selectedFiles = [];
+
+        if (dropZone && imageInput && compressBtn && compressorResult) {
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log(`Event triggered: ${eventName}`);
+                }, false);
+            });
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => {
+                    dropZone.classList.add('active');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => {
+                    dropZone.classList.remove('active');
+                }, false);
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                console.log('Files dropped:', e.dataTransfer.files);
+                const files = Array.from(e.dataTransfer.files).filter(file => 
+                    ['image/jpeg', 'image/png'].includes(file.type) && file.size <= 5 * 1024 * 1024
+                );
+                handleFiles(files);
+            });
+
+            imageInput.addEventListener('change', (e) => {
+                console.log('Files selected via input:', e.target.files);
+                const files = Array.from(e.target.files).filter(file => 
+                    ['image/jpeg', 'image/png'].includes(file.type) && file.size <= 5 * 1024 * 1024
+                );
+                handleFiles(files);
+                e.target.value = '';
+            });
+
+            dropZone.addEventListener('click', () => {
+                console.log('Drop zone clicked');
+                imageInput.click();
+            });
+
+            function handleFiles(files) {
+                console.log('Handling files:', files.map(f => ({ name: f.name, type: f.type, size: f.size })));
+                if (files.length === 0) {
+                    compressorResult.innerHTML = '<p class="error">Please select valid JPEG/PNG images (max 5MB each).</p>';
+                    compressBtn.disabled = true;
+                    return;
+                }
+                selectedFiles = [...selectedFiles, ...files];
+                compressBtn.disabled = selectedFiles.length === 0;
+                renderFileList();
+            }
+
+            function renderFileList() {
+                compressorResult.innerHTML = '';
+                if (selectedFiles.length === 0) return;
+                const ul = document.createElement('ul');
+                ul.className = 'file-list';
+                selectedFiles.forEach((file, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span>${file.name} (${(file.size / 1024).toFixed(2)} KB)</span>
+                        <i class='bx bx-trash' data-index="${index}"></i>
+                    `;
+                    ul.appendChild(li);
+                });
+                compressorResult.appendChild(ul);
+
+                ul.querySelectorAll('.bx-trash').forEach(trash => {
+                    trash.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.dataset.index);
+                        selectedFiles.splice(index, 1);
+                        compressBtn.disabled = selectedFiles.length === 0;
+                        renderFileList();
+                    });
+                });
+            }
+
+            async function compressImages() {
+                if (selectedFiles.length === 0) return;
+                compressorResult.innerHTML = '<p>Compressing images...</p>';
+                compressBtn.disabled = true;
+                const results = [];
+
+                const imageCompressor = new ImageCompressor();
+                for (const file of selectedFiles) {
+                    console.log(`Compressing ${file.name}`);
+                    console.log(`File details: type=${file.type}, size=${(file.size / 1024).toFixed(2)} KB`);
+                    if (!['image/jpeg', 'image/png'].includes(file.type)) {
+                        results.push({
+                            fileName: file.name,
+                            error: 'Invalid file type. Only JPEG and PNG are supported.'
+                        });
+                        continue;
+                    }
+
+                    try {
+                        const compressedFile = await imageCompressor.compress(file, {
+                            quality: 0.6, // 0 to 1, lower means more compression
+                            maxWidth: 1920, // Resize to max 1920px width
+                            maxHeight: 1080, // Resize to max 1080px height
+                            convertSize: 5000000, // Don't convert if under 5MB
+                            mimeType: file.type // Preserve original type
+                        });
+
+                        const compressedFileName = file.name.replace(/\.[^/.]+$/, `_compressed.${file.type.split('/')[1]}`);
+                        const compressedBlob = new Blob([compressedFile], { type: file.type });
+                        const compressedFileObj = new File([compressedBlob], compressedFileName, { type: file.type });
+
+                        results.push({
+                            fileName: compressedFileName,
+                            originalSize: file.size,
+                            compressedSize: compressedBlob.size,
+                            compressedBlob,
+                            downloadUrl: URL.createObjectURL(compressedBlob)
+                        });
+                    } catch (error) {
+                        console.error(`Error compressing ${file.name}:`, error.message, error);
+                        results.push({
+                            fileName: file.name,
+                            error: error.message || 'Failed to compress image.'
+                        });
+                    }
+                }
+
+                compressorResult.innerHTML = results.map(result => {
+                    if (result.error) {
+                        return `<p class="error">Error compressing ${result.fileName}: ${result.error}</p>`;
+                    }
+                    return `
+                        <div class="compression-result">
+                            <p><strong>${result.fileName}</strong></p>
+                            <p>Original Size: ${(result.originalSize / 1024).toFixed(2)} KB</p>
+                            <p>Compressed Size: ${(result.compressedSize / 1024).toFixed(2)} KB</p>
+                            <p>Reduction: ${((1 - result.compressedSize / result.originalSize) * 100).toFixed(2)}%</p>
+                            <a href="${result.downloadUrl}" download="${result.fileName}" class="btn download-btn">Download <i class='bx bx-download'></i></a>
+                        </div>
+                    `;
+                }).join('');
+
+                selectedFiles = [];
+                compressBtn.disabled = true;
+            }
+
+            compressBtn.addEventListener('click', compressImages);
+        } else {
+            console.error('Image Compressor elements not found');
+        }
+    </script>
+</body>
+</html>
